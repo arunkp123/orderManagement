@@ -27,9 +27,8 @@
 1. You can run `docker-compose up` from terminal
 2. Server is accessible at `http://localhost:8080`
 3. Run manual testcase suite by :
-	- Integration test by this `docker exec manage_order_php php ./vendor/phpunit/phpunit/phpunit /var/www/html/tests/Feature/OrderControllerTest.php` &
-	- Unit Tests by this `docker exec manage_order_php php ./vendor/phpunit/phpunit/phpunit /var/www/html/tests/Unit/OrderUnitTest.php`
-
+	- `docker exec manage_order_php php ./vendor/phpunit/phpunit/phpunit /var/www/html/tests/Feature/OrderControllerTest.php`
+	
 ## How to Run Tests (Explicity from cli)
 
  Test Cases can be executed by:
