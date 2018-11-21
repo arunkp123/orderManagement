@@ -24,6 +24,7 @@
         const HTTP_STATUS_CODE_204 = 204;
         const HTTP_STATUS_CODE_206 = 206;
         const HTTP_STATUS_CODE_400 = 400;
+        const HTTP_STATUS_CODE_406 = 406;
         const HTTP_STATUS_CODE_409 = 409;
         const HTTP_STATUS_CODE_500 = 500;
         
@@ -189,6 +190,7 @@
                 }
             
                 $validation = $this->helper->pageLimitCheck($limit, $page);
+              
                 if ( !empty($validation) ) {
                     $response = array('error' => $validation['error']);
                     return response()->json($response, self::HTTP_STATUS_CODE_206);

@@ -219,4 +219,27 @@ class OrderControllerTest extends \PHPUnit\Framework\TestCase
         
     }
     
+    public function testFetchOrderFailureForNegativeValuesIntegration()
+    {
+        echo "\n \n ---------Fetching orders with negative values for page & limit should fail--------- \n \n";
+        
+        try {
+            $response = $this->client->get('/orders', [
+                'query' => [
+                    'page' => '-1',
+                    'limit' => '-1',
+                ],
+            ]);
+    
+            $this->assertEquals('206',$response->getStatusCode());
+            
+        } catch (RequestException $exception) {
+            
+            $statusCode = $exception->getCode();
+            echo $statusCode;
+            $this->assertEquals("206", $statusCode);
+            //$this->assertNotNull($exception);
+        }
+    }
+    
 }
