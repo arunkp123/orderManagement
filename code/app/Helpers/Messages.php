@@ -2,7 +2,8 @@
     
     namespace App\Helpers;
     
-    class Messages {
+    class Messages
+    {
         
         /**
          * All error messages.
