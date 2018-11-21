@@ -1,0 +1,52 @@
+version: "2.1"
+
+services:
+    nginx:
+        build: ./nginx/
+        container_name: manage_order_nginx
+        dns_search: nginx
+        ports:
+            - 8080:80
+        volumes:
+            - "./code:/var/www/html:ro"
+        links:
+            - php
+            - mysql
+        depends_on:
+            - composer
+    php:
+        build: ./php/
+        container_name: manage_order_php
+        expose:
+            - 9000
+        volumes:
+            - "./code:/var/www/html"
+        working_dir: /var/www/html
+        dns_search: php
+        depends_on:
+            - mysql
+    mysql:
+        build: ./mysql/
+        container_name: manage_order_mysql
+        ports:
+            - 3306:3306
+        dns_search: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: "password"
+            MYSQL_DATABASE: "demoapp"
+        restart: always
+
+
+    composer:
+        container_name: manage_order_composer
+        restart: 'no'
+        image: koutsoumpos89/composer-php7.1
+        command: install --ignore-platform-reqs
+        working_dir: /var/www/html
+        volumes:
+            - "./code:/var/www/html"
+
+volumes:
+    db-data:
+      driver: local
+
