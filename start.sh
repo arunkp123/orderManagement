@@ -25,7 +25,4 @@ docker exec manage_order_php php artisan db:seed
 echo " $red ----- Running Intergration test cases ------- $white "
 docker exec manage_order_php php ./vendor/phpunit/phpunit/phpunit /var/www/html/tests/Feature/OrderControllerTest.php
 
-echo " $red ----- Running Unit test cases ------- $white "
-docker exec manage_order_php php ./vendor/phpunit/phpunit/phpunit /var/www/html/tests/Unit/OrdersUnitTest.php
-
 exit 0
