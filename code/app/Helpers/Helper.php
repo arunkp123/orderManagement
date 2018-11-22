@@ -48,7 +48,6 @@
                     return ['distance_id' => $distance_id, 'total_distance' => $totalDis];
                 }
             
-                // $totalDis = 88;
                 //inserting data in distance table
             
                 $distance = new Distance;
