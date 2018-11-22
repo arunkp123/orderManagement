@@ -24,7 +24,7 @@ class OrderControllerTest extends \PHPUnit\Framework\TestCase
             'Accept' => 'application/json',
         ];
 
-        $this->guzzleObject('http://local.demo.com', $theHeaders);
+        $this->guzzleObject('http://nginx', $theHeaders);
     }
 
     public function testOrderCreationFailureIntegrations()
