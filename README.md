@@ -90,7 +90,7 @@
 
 **./tests**
 
-- this folder contains test cases written under /tests/Feature/OrderControllerTest.php
+- this folder contains test cases written under /tests/Feature/OrderControllerTest.php & /tests/Unit/OrderUnitTest.php
 
 **./app**
 
